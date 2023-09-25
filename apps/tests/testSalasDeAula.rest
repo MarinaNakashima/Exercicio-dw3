@@ -1,0 +1,29 @@
+### teste de buscar todas as Sala de Aulas
+GET http://localhost:40000/getAllSalasDeAula HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InF3ZSIsImlhdCI6MTY5Mjc5ODg2MSwiZXhwIjoxNjkyNzk5NDYxfQ.43OGaDLf0iQHUXgfM8wBETYE5A8TGHR1G0hfupccsfM
+
+{    
+    
+}
+
+### Buscar Sala de Aula por ID
+POST http://localhost:40000/getSalasDeAulaByID HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InF3ZSIsImlhdCI6MTY5MzM5NzE3OCwiZXhwIjoxNjkzMzk3Nzc4fQ.EezpOMc_2UOvUb0ujlgJ1Tp9dlcg0Wkz_q8kixdxa6E
+
+{    
+    "salasdeaulaid": 1
+}
+
+### Insert de Sala de Aula 
+POST http://localhost:40000/insertSalasDeAula HTTP/1.1 
+content-type: application/json 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InF3ZSIsImlhdCI6MTY5MzM5NzE3OCwiZXhwIjoxNjkzMzk3Nzc4fQ.EezpOMc_2UOvUb0ujlgJ1Tp9dlcg0Wkz_q8kixdxa6E
+
+{
+"descricao": "Sala Musica", 
+"localizacao": "Bloco 2", 
+"capacidade": "30", 
+"removido":false
+}
