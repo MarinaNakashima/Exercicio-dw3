@@ -8,13 +8,11 @@ routerApp.use((req, res, next) => {
   next();
 });
 
-routerApp.get("/", (req, res) => {
-  res.send("Olá mundo!");
-});
-
-//Rotas de Salas De Aula
 routerApp.get("/getAllSalasDeAula", appSalasDeAula.getAllSalasDeAula);
 routerApp.post("/getSalasDeAulaByID", appSalasDeAula.getSalasDeAulaByID);
 routerApp.post("/insertSalasDeAula", appSalasDeAula.insertSalasDeAula);
+routerApp.put("/updateSalasDeAula/:id", appSalasDeAula.updateSalasDeAula);
+routerApp.delete("/deleteSalasDeAula/:id", appSalasDeAula.deleteSalasDeAula);
 
 module.exports = routerApp;
+

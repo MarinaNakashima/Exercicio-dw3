@@ -45,8 +45,45 @@ const getSalasDeAulaByID = async (salasdeaulaIDPar) => {
     return { msg, linhasAfetadas };
   };
 
+// Função para atualizar uma sala de aula por ID
+const updateSalasDeAula = async (salasdeaulaID, descricao, localizacao, capacidade) => {
+  let linhasAfetadas;
+  let msg = "ok";
+  try {
+    linhasAfetadas = (
+      await db.query(
+        "UPDATE salasdeaula SET descricao = $1, localizacao = $2, capacidade = $3 WHERE salasdeaulaid = $4 AND removido = false",
+        [descricao, localizacao, capacidade, salasdeaulaID]
+      )
+    ).rowCount;
+  } catch (error) {
+    msg = "[mdlSalasDeAula|updateSalasDeAula] " + error.detail;
+    linhasAfetadas = -1;
+  }
+  return { msg, linhasAfetadas };
+};
+
+const deleteSalasDeAula = async (salasdeaulaID) => {
+  let linhasAfetadas;
+  let msg = "ok";
+  try {
+    linhasAfetadas = (
+      await db.query(
+        "UPDATE salasdeaula SET removido = true WHERE salasdeaulaid = $1 AND removido = false",
+        [salasdeaulaID]
+      )
+    ).rowCount;
+  } catch (error) {
+    msg = "[mdlSalasDeAula|deleteSalasDeAula] " + error.detail;
+    linhasAfetadas = -1;
+  }
+  return { msg, linhasAfetadas };
+};
+
 module.exports = {
-    getAllSalasDeAula,
-    getSalasDeAulaByID,
-    insertSalasDeAula
-  };
+  getAllSalasDeAula,
+  getSalasDeAulaByID,
+  insertSalasDeAula,
+  updateSalasDeAula,
+  deleteSalasDeAula
+};

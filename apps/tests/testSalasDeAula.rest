@@ -27,3 +27,19 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InF3Z
 "capacidade": "30", 
 "removido":false
 }
+
+### Atualizar Sala de Aula por ID (PUT)
+PUT http://localhost:40000/salas/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InF3ZSIsImlhdCI6MTY5MzM5NzE3OCwiZXhwIjoxNjkzMzk3Nzc4fQ.EezpOMc_2UOvUb0ujlgJ1Tp9dlcg0Wkz_q8kixdxa6E
+
+{
+  "descricao": "Nova Descrição",
+  "localizacao": "Novo Bloco",
+  "capacidade": 50
+}
+
+### Excluir (soft delete) Sala de Aula por ID (DELETE)
+DELETE http://localhost:40000/salas/1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InF3ZSIsImlhdCI6MTY5MzM5NzE3OCwiZXhwIjoxNjkzMzk3Nzc4fQ.EezpOMc_2UOvUb0ujlgJ1Tp9dlcg0Wkz_q8kixdxa6E
